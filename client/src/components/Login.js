@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import axios from "axios";
 
 const iniLoginForm = {
@@ -33,9 +33,8 @@ const Login = (props) => {
   }
   // when you have handled the token, navigate to the BubblePage route
   return (
-    <>
+    <div className='login-page'>
       <h1>Welcome to the Bubble App!</h1>
-      <p>Build a login page here</p>
       <form onSubmit={onSubmit}>
         <label>
           <input 
@@ -57,7 +56,7 @@ const Login = (props) => {
           <button>Login</button>
         </div>
       </form>
-    </>
+    </div>
   );
 };
 
