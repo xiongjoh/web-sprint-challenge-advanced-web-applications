@@ -6,12 +6,22 @@ const iniLoginForm = {
   password:'i<3Lambd4'
 }
 
-const Login = () => {
+const Login = (props) => {
   const [ loginForm, setLoginForm ] = useState(iniLoginForm)
   // make a post request to retrieve a token from the api
   const onSubmit = (e) => {
     e.preventDefault()
-    axios.post()
+    axios.post(`http://localhost:5000/api/login`, loginForm)
+    .then(res => {
+      console.log(res)
+      localStorage.setItem('token', res.data.payload)
+      props.history.push('/bubbles')
+    })
+    .catch(err => {
+      debugger
+      console.log(err)
+      console.log(err.response)
+    })
   }
 
   const onChange = (e) => {
